@@ -7,6 +7,13 @@ class Event(Model):
     max_attendees: int
 
 
+class Organizer(Model):
+    name: str
+    email: str
+    phone: str
+    website: str
+
+
 class EventEntity(Entity):
     @property
     def date(self):
