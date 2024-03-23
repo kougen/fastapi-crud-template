@@ -6,6 +6,7 @@ build/
 *.egg-info/
 *.egg/
 *.pyc
+data/
 
 # PyCharm
 *.iml
