@@ -38,10 +38,12 @@ def main():
     # NOTE: Get the internal router to add custom routes
     event_base = event_router.get_base()
 
-    @event_base.get("/events/{event_id}/attendees")
+    # NOTE: Add custom routes to the router as you would with FastAPI
+    @event_base.get("/events/{event_id}/attendees", tags=["events"])
     async def get_event_attendees(event_id: int):
         return {"event_id": event_id, "attendees": ["Alice", "Bob", "Charlie"]}
 
+    # NOTE: You can also **post** custom routes
     @event_base.post("/events/{event_id}/organizers")
     async def add_organizer(event_id: int, organizer_id: int):
         return {"event_id": event_id, "organizer_id": organizer_id}
