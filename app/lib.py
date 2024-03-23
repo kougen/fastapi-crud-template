@@ -15,7 +15,7 @@ def init_project():
     return data_dir
 
 
-def bootstrap(data_source: DataSource) -> CRUDApi
+def bootstrap(data_source: DataSource) -> CRUDApi:
     app = FastAPI(
         title="My API",
         description="This is a very fancy project, with auto docs for the API and everything.",
