@@ -1,4 +1,5 @@
 import uvicorn
+from fastapi import FastAPI
 from pyrepositories import DataSource, JsonTable
 import os
 import sys
@@ -10,7 +11,7 @@ sys.path.append(os.path.join(path_root))
 from app.lib import init_project, bootstrap
 from app.models import Event, Organizer
 
-def main():
+def setup() -> FastAPI:
     """Main entry point of the application."""
 
     # NOTE: Initialize the project
@@ -61,8 +62,15 @@ def main():
     # It won't harm anything, because the routers check if they are already included in the app
     api.publish()
 
-    uvicorn.run(app, host="0.0.0.0", port=1234)
+    return app
 
 if __name__ == "__main__":
-    main()
+    try:
+        app = setup()
+        uvicorn.run(app, host="0.0.0.0", port=1234)
+    except KeyboardInterrupt:
+        print("Shutting down...")
+        exit()
+
+app = setup()
 
