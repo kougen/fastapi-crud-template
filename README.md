@@ -8,17 +8,8 @@ This is a template for FastAPI CRUD operations.
 - Repository Pattern (from [pyrepositories](https://pypi.org/project/pyrepositories/))
 - Automatic docker image build and publish on release
 
-## Requirements
 
-- Python 3.8+
-
-## Installation
-
-```bash
-pip install -r requirements.txt --upgrade
-```
-
-### Docker image
+## Configure GitHub action
 
 You will have to set up 2 secrets and 2 variables in your repository
 
@@ -29,6 +20,16 @@ Secrets:
 Variables:
 - `HUB_NS`: Docker hub target **N**ame**S**pace
 - `HUB_REPO`: Docker hub target repository
+
+## Requirements
+
+- Python 3.8+
+
+## Installation
+
+```bash
+pip install -r requirements.txt --upgrade
+```
 
 ## Usage
 
